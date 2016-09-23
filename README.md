@@ -1,0 +1,1 @@
+CREATE DATABASE hair_salon
