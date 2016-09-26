@@ -27,12 +27,12 @@
 
         function save()
         {
-            $GLOBALS['DB']->exec("INSERT INTO client (name) VALUES ('{$this->getName()}');");
+            $GLOBALS['DB']->exec("INSERT INTO clients (name) VALUES ('{$this->getName()}');");
             $this->client_id = $GLOBALS['DB']->lastInsertId();
         }
-        function getAll()
+        static function getAll()
         {
-            $returned_clients = $GLOBAL["DB"]->query("SELECT * FROM client;");
+            $returned_clients = $GLOBALS["DB"]->query("SELECT * FROM clients;");
             $clients = array();
             foreach ($returned_clients as $client)
             {
@@ -46,7 +46,7 @@
 
         static function deleteAll()
         {
-            $GLOBALS['DB']->exec("DELETE from client");
+            $GLOBALS['DB']->exec("DELETE from clients");
         }
         static function find($search_id)
         {

@@ -26,12 +26,12 @@
 
         function save()
         {
-            $GLOBALS['DB']->exec("INSERT INTO stylist (name) VALUES ('{$this->getName()}');");
+            $GLOBALS['DB']->exec("INSERT INTO stylists (name) VALUES ('{$this->getName()}');");
             $this->stylist_id = $GLOBALS['DB']->lastInsertId();
         }
-        function getAll()
+        static function getAll()
         {
-            $returned_stylists = $GLOBAL["DB"]->query("SELECT * FROM stylist;");
+            $returned_stylists = $GLOBALS["DB"]->query("SELECT * FROM stylists;");
             $stylists = array();
             foreach ($returned_stylists as $stylist)
             {
@@ -45,7 +45,7 @@
 
         static function deleteAll()
         {
-            $GLOBALS['DB']->exec("DELETE from stylist");
+            $GLOBALS['DB']->exec("DELETE from stylists");
         }
         static function find($search_id)
         {
