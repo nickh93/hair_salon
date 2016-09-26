@@ -4,6 +4,7 @@
     {
         private $name;
         private $client_id;
+        private $stylist_id;
 
         function __construct($client_name, $cli_id = null)
         {
