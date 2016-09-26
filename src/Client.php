@@ -6,9 +6,10 @@
         private $client_id;
         private $stylist_id;
 
-        function __construct($client_name, $cli_id = null)
+        function __construct($client_name, $stylist_id, $cli_id = null)
         {
             $this->name = $client_name;
+            $this->stylist_id = $stylist_id;
             $this->client_id = $cli_id;
         }
 
@@ -24,10 +25,18 @@
         {
             return $this->name;
         }
+        function getStylistId()
+        {
+            return $this->stylist_id;
+        }
+        function setStylistId($new_stylist_id)
+        {
+            $this->stylist_id = (int) $new_stylist_id;
+        }
 
         function save()
         {
-            $GLOBALS['DB']->exec("INSERT INTO clients (name) VALUES ('{$this->getName()}');");
+            $GLOBALS['DB']->exec("INSERT INTO clients (name, stylist_id) VALUES ('{$this->getName()}', {$this->getStylistId()});");
             $this->client_id = $GLOBALS['DB']->lastInsertId();
         }
         static function getAll()
@@ -38,7 +47,8 @@
             {
                 $name = $client['name'];
                 $client_id = $client['id'];
-                $new_client = new Client($name, $client_id);
+                $stylist_id = $client['stylist_id'];
+                $new_client = new Client($name, $stylist_id, $client_id);
                 array_push($clients, $new_client);
             }
             return $clients;
