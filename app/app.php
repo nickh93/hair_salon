@@ -1,6 +1,6 @@
 <?php
     require_once __DIR__."/../vendor/autoload.php";
-    require_once __DIR__."/../src/Cient.php";
+    require_once __DIR__."/../src/Client.php";
     require_once __DIR__."/../src/Stylist.php";
 
     $app = new Silex\Application();
@@ -30,7 +30,7 @@
         return $app['twig']->render('stylist.html.twig', array('stylist' => $stylist, 'clients' => $stylist->getClients()));
     });
 
-    $app->post("/stylists", function() use ($app) {
+    $app->post("/clients", function() use ($app) {
         $client_name = $_POST['client-name'];
         $stylist_id = $_POST['stylist_id'];
         $client = new Client($client_name, $stylist_id, $id = null);
