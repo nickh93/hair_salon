@@ -15,6 +15,7 @@
             </ul>
         {% endif %}
 
+        <p><a href="/stylists/{{ stylist.getId }}/edit">Edit this Stylist</a></p>
         <h4>Add a Client</h4>
         <form action='/clients' method="post">
             <input id="stylist_id" name="stylist_id" type="hidden" value="{{ stylist.getId() }}">
