@@ -39,6 +39,18 @@
             $GLOBALS['DB']->exec("INSERT INTO clients (name, stylist_id) VALUES ('{$this->getName()}', {$this->getStylistId()});");
             $this->client_id = $GLOBALS['DB']->lastInsertId();
         }
+
+        function update($new_name)
+        {
+            $GLOBALS['DB']->exec("UPDATE client SET name = '{$new_name}' WHERE id = {$this->getId()};");
+            $this->setName($new_name);
+        }
+
+        function delete()
+        {
+            $GLOBALS['DB']->exec("DELETE FROM clients WHERE id = {$this->getId()};"); 
+        }
+
         static function getAll()
         {
             $returned_clients = $GLOBALS["DB"]->query("SELECT * FROM clients;");

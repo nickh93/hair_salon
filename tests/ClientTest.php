@@ -180,6 +180,52 @@
             $this->assertEquals([], $result);
         }
 
+        function test_Update()
+        {
+            //ARRANGE
+            $name = "Shannon";
+            $id = null;
+            $test_client = new Client($name, $id);
+            $test_client->save();
+
+            $new_name = "Jorge";
+
+            //ACT
+            $test_client->update($new_name);
+            //ASSERT
+            $this->assertEquals("Jorge", $test_client->getName());
+        }
+
+        function testDelete()
+        {
+            //Arrange
+            $stylist_name = "Marge";
+            $test_stylist = new Stylist($stylist_name);
+            $test_stylist->save();
+            $stylist_id = $test_stylist->getId();
+
+            $stylist_name2 = "Juliana";
+            $test_stylist2 = new Stylist($stylist_name2);
+            $test_stylist2->save();
+            $stylist_id2 = $test_stylist2->getId();
+
+            $name = "Alida";
+            $id = null;
+            $test_client = new Client($name, $stylist_id, $id);
+            $test_client->save();
+
+            $name2 = "Hannah";
+            $test_client2 = new Client($name2, $stylist_id2, $id);
+            $test_client2->save();
+
+
+            //Act
+            $test_client->delete();
+
+            //Assert
+            $this->assertEquals([$test_client2], Client::getAll());
+        }
+
         function test_find()
         {
             //Arrange
