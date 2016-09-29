@@ -37,7 +37,7 @@
       $stylist->update($stylist_name);
       return $app['twig']->render('stylist.html.twig', array('stylist' => $stylist, 'clients' => $stylist->getClients()));
     });
-    
+
     $app->post("/clients", function() use ($app) {
       $client_name = $_POST['client-name'];
       $stylist_id = $_POST['stylist_id'];
@@ -53,7 +53,11 @@
         return $app['twig']->render('index.html.twig', array('stylists' => Stylist::getAll()));
     });
 
-
+    $app->delete("/stylists/{id}", function($id) use ($app) {
+        $stylist = Stylist::find($id);
+        $stylist->delete();
+        return $app['twig']->render('index.html.twig', array('stylists' => Stylist::getAll()));
+    });
 
     return $app;
 ?>

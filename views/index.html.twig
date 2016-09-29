@@ -15,7 +15,7 @@
         </form>
 
         {% if stylists is not empty %}
-            <p>Here are all your categories:</p>
+            <p>Here are all your stylists:</p>
             <ul>
                 {% for stylist in stylists %}
                     <li><a href="/stylists/{{ stylist.getId }}">{{ stylist.getName }}</a></li>

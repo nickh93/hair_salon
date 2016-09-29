@@ -201,9 +201,9 @@
             $test_stylist = new Stylist($name, $id);
             $test_stylist->save();
 
-            $description = "Tanya";
+            $client = "Tanya";
             $stylist_id = $test_stylist->getId();
-            $test_client = new Client($description, $id, $stylist_id);
+            $test_client = new Client($client, $id, $stylist_id);
             $test_client->save();
 
 
