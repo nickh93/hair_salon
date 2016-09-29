@@ -31,11 +31,29 @@
       return $app['twig']->render('stylist_edit.html.twig', array('stylist' => $stylist));
     });
 
+    $app->get("client/{id}/edit", function($id) use ($app) {
+      $client = Client::find($id);
+      return $app['twig']->render('client_edit.html.twig', array('client' => $client));
+    });
+
     $app->patch("/stylists/{id}", function($id) use ($app) {
       $stylist_name = $_POST['stylist-name'];
       $stylist = Stylist::find($id);
       $stylist->update($stylist_name);
       return $app['twig']->render('stylist.html.twig', array('stylist' => $stylist, 'clients' => $stylist->getClients()));
+    });
+
+    $app->patch("/clients/{id}", function($id) use ($app) {
+      $client_name = $_POST['client-name'];
+      $client = Client::find($id);
+      $client->update($client_name);
+      return $app['twig']->render('index.html.twig', array('stylists' => Stylist::getAll()));
+    });
+
+    $app->delete("clients/{id}", function($id) use ($app) {
+      $client = Client::find($id);
+      $client->delete();
+      return $app['twig']->render('index.html.twig', array('stylists' => Stylist::getAll()));
     });
 
     $app->post("/clients", function() use ($app) {
