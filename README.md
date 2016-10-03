@@ -61,10 +61,11 @@ _Program updates a client's information when update button is clicked_
 
 ##SQL Queries for Database Set-up
 
-CREATE DATABASE hair_salon;
-USE hair_salon;
-CREATE TABLE stylists (id serial PRIMARY KEY, name varchar (255));
-CREATE TABLE clients (id serial PRIMARY KEY, name varchar (255));
+* CREATE DATABASE hair_salon;
+* USE hair_salon;
+* CREATE TABLE stylists (id serial PRIMARY KEY, name varchar (255));
+* CREATE TABLE clients (id serial PRIMARY KEY, name varchar (255));
+
 ## Known Bugs
 
 _In this version, there are no known bugs, but feel free to play around with the code and find out!_
