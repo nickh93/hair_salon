@@ -1,29 +1,36 @@
 <html>
     <head>
-        <title>Hair Salon</title>
+        {% include "/partials/header.html" %}
     </head>
     <body>
-        <h1>Welcome to To My Hair Salon</h1>
-
-        <p>Create a new Stylist:</p>
-
-        <form action="/stylists" method="post">
-            <label for="stylist-name">Stylist Name:</label>
-            <input id="stylist-name" name="stylist-name" type="text">
-
-            <button type="submit">Add stylist</button>
-        </form>
-
-        {% if stylists is not empty %}
-            <p>Here are all your stylists:</p>
-            <ul>
-                {% for stylist in stylists %}
-                    <li><a href="/stylists/{{ stylist.getId }}">{{ stylist.getName }}</a></li>
-                {% endfor %}
-            </ul>
-        {% else %}
-          <p>There are no stylists yet!</p>
-        {% endif %}
-
+        <div class="container">
+            <h1 class="title">Welcome to To Philly Cutz</h1>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="barbers">
+                        {% if stylists is not empty %}
+                            <p>Barber Team:</p>
+                            <ul>
+                                {% for stylist in stylists %}
+                                    <li><a href="/stylists/{{ stylist.getId }}">{{ stylist.getName }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        {% else %}
+                            <p>There are no barbers yet!</p>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <h3>Create a New Barber:</h3>
+                    <form action="/stylists" method="post">
+                        <div class="form-group">
+                            <label for="stylist-name">Barber Name:</label>
+                            <input id="stylist-name" name="stylist-name" type="text">
+                        </div>
+                        <button class="btn btn-info" type="submit">Add barber</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </body>
 </html>

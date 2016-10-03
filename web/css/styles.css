@@ -1,0 +1,20 @@
+body {
+  color: #fcfcfc;
+  background-color: #181819;
+}
+
+@font-face {
+  font-family: TitleFont;
+  src: url(/css/FugazOne-Regular.ttf);
+}
+
+.title {
+  text-align: center;
+  font-family: TitleFont;
+  margin: 150px;
+}
+
+.barber-form {
+  float: right;
+  color: red;
+}

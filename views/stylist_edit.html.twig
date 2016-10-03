@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Edit Stylist</title>
-    </head>
+    {% include "/partials/header.html" %}
     <body>
-        <form action="/stylists/{{ stylist.getId }}" method="post">
-            <input name="_method" type="hidden" value="patch">
+      <div class="container">
+          <h2>{{stylist.getName}}</h2>
+          <form action="/stylists/{{ stylist.getId }}" method="post">
+              <div class="form-group">
+                  <input name="_method" type="hidden" value="patch">
 
-            <label for="stylist-name">Rename your Stylist:</label>
-            <input id="stylist-name" name="stylist-name" type="text">
+                  <label for="stylist-name">Rename your Stylist:</label>
+                  <input id="stylist-name" name="stylist-name" type="text">
+              </div>
 
-            <button type="submit">Update</button>
-        </form>
-        <form action="/stylists/{{ stylist.getId }}" method="post">
-            <input name="_method" type="hidden" value="delete">
-            <button type="submit">Delete this stylist</button>
-        </form>
+              <button class="btn btn-info"type="submit">Update</button>
+          </form>
+          <form action="/stylists/{{ stylist.getId }}" method="post">
+              <input name="_method" type="hidden" value="delete">
+              <button class="btn btn-danger"type="submit">Delete this stylist</button>
+          </form>
+      </div>
     </body>
 </html>
