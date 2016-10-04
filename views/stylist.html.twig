@@ -3,7 +3,9 @@
     {% include "/partials/header.html" %}
     <body>
         <div class="container">
+            <br>
             <h1>{{ stylist.getName }}</h1>
+            <hr><br>
 
             {% if clients is not empty %}
                 <h3 class="b-name">{{ stylist.getName }}'s clients: </h3>
@@ -14,16 +16,16 @@
                 </ul>
             {% endif %}
 
-            <p><a href="/stylists/{{ stylist.getId }}/edit">Edit this Stylist</a></p>
-            <h4>Add a Client</h4>
+            <p><a href="/stylists/{{ stylist.getId }}/edit">Edit this Stylist</a></p><br>
+            <h4>Add a Client</h4><br>
             <form action='/clients' method="post">
               <div class="form-group">
                 <input class="form-control" id="stylist_id" name="stylist_id" type="hidden" value="{{ stylist.getId() }}">
                 <label for="client-name">Client Name</label>
-                <input id="client-name" name="client-name" type="text">
+                <input id="client-name" name="client-name" type="text"><br>
               </div>
                 <button class="btn btn-default" type="submit">Add a client</button>
-            </form>
+            </form><br>
             <p><a href="/">Home</a>
         </div>
     </body>

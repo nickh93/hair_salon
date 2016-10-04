@@ -64,3 +64,8 @@ header {
 a {
   color: inherit;
 }
+
+li {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
