@@ -69,3 +69,15 @@ li {
   margin-top: 25px;
   margin-bottom: 25px;
 }
+
+@media only screen and (max-width: 768px) {
+  .barbers {
+    width: 100%;
+  }
+  .row {
+    margin-right: 150px;
+  }
+  img {
+    display: none;
+  }
+}
